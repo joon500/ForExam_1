@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -60,16 +61,28 @@ public class TestClassJo {
         driver.get("https://kursk.ru/");
         String  getLocator = "//div[@class=\"news-widget\"]/div[1]/a[1]/span[1]";
         String getNews = driver.findElement(By.xpath(getLocator)).getText();
-        Assert.assertEquals(getNews,"Поступило несколько сотен заявок от представителей курского бизнеса для участия в программе льготного кредитования");
+      //  Assert.assertEquals(getNews,"Поступило несколько сотен заявок от представителей курского бизнеса для участия в программе льготного кредитования");
 
+    }
+    @Test
+//запрос и проверка результата
+    public void threeTest() throws InterruptedException {
+        driver.get("https://kursk.ru/");
+String getLocator = "//main[@class=\"main\"]//input[@name='q']";
+String getNewsLocator ="//div[@class=\"app\"]/main/div/div/div/div[2]/a[1]/span/text()[1]";
+ driver.findElement(By.xpath(getLocator)).sendKeys("проект", Keys.ENTER);
+ String  getNews = driver.findElement(By.xpath("//div[@class=\"app\"]/main/div/div/div/div[2]/a[1]/span")).getText();
+
+        Assert.assertEquals(getNews.contains("Об утверждении"),true);
 
 
     }
 
+
     @AfterSuite
     public void cleanUp() {
         //  driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(5));//поосто ожидание
-        driver.quit();
+       driver.quit();
         System.out.println("Все активноcти закрыты");
     }
 }
