@@ -69,9 +69,9 @@ public class TestClassJo {
     public void threeTest() throws InterruptedException {
         driver.get("https://kursk.ru/");
 String getLocator = "//main[@class=\"main\"]//input[@name='q']";
-String getNewsLocator ="//div[@class=\"app\"]/main/div/div/div/div[2]/a[1]/span/text()[1]";
+String getNewsLocator ="//div[@class=\"app\"]/main/div/div/div/div[2]/a[1]/span";
  driver.findElement(By.xpath(getLocator)).sendKeys("проект", Keys.ENTER);
- String  getNews = driver.findElement(By.xpath("//div[@class=\"app\"]/main/div/div/div/div[2]/a[1]/span")).getText();
+ String  getNews = driver.findElement(By.xpath(getNewsLocator)).getText();
 
         Assert.assertEquals(getNews.contains("Об утверждении"),true);
 
