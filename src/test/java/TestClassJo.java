@@ -31,7 +31,7 @@ public class TestClassJo {
 
     @Test
     //найти поле, ввести значение, проверить введенное значение
-    public void firstTest() throws InterruptedException {
+    public void firstTest()  {
         driver.get("https://yandex.ru/");
 
         String locatorForSearchInput = "//input[@class=\"input__control input__input mini-suggest__input\"]";
@@ -43,7 +43,7 @@ public class TestClassJo {
         //получеие атрибута
         String findAttribute = driver.findElement(By.xpath(locatorForSearchInput)).getAttribute("value");
 
-        Assert.assertEquals(findAttribute, "ruby", "занчение не эквевалентно заданому");
+        Assert.assertEquals(findAttribute, "ruby", "значение не эквивалентно заданному");
 
 
     }
@@ -58,17 +58,17 @@ public class TestClassJo {
 
     @Test
 //получение текста новости и проверка его
-    public void twoTest() throws InterruptedException {
+    public void twoTest()  {
         driver.get("https://kursk.ru/");
         String getLocator = "//div[@class=\"news-widget\"]/div[1]/a[1]/span[1]";
         String getNews = driver.findElement(By.xpath(getLocator)).getText();
-         // Assert.assertEquals(getNews,"Поступило несколько сотен заявок от представителей курского бизнеса для участия в программе льготного кредитования");
+        Assert.assertEquals(getNews,"Поступило несколько сотен заявок от представителей курского бизнеса для участия в программе льготного кредитования");
 
     }
 
     @Test
 //запрос и проверка результата
-    public void threeTest() throws InterruptedException {
+    public void threeTest() {
         driver.get("https://kursk.ru/");
 
         String getLocator = "//main[@class=\"main\"]//input[@name='q']";
