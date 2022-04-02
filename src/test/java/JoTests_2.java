@@ -28,7 +28,7 @@ public class JoTests_2 {
     public void beforeClass() {
        // MDC.put("test_name", "test1");      // определяем метку test_name
       //  MDC.put("test_step", "before_class"); // определяем метку test_step
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\jon\\Desktop\\java\\chromedriver2.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\jon\\Desktop\\java\\chromedriver100.exe");
 
         driver = new ChromeDriver();
 
@@ -89,6 +89,7 @@ public class JoTests_2 {
         try {
             //   MDC.put("test_step", "step_2");
             //Нажать на кнопку в форме кнопка в форме «установите постамат»
+                                     //--//i[@alt="icon arrow"]/../../a[@href="https://www.ozon.ru/ozon-box/"]
             driver.findElement(By.xpath("//i[@alt=\"icon arrow\"]/parent::a[@href=\"https://www.ozon.ru/ozon-box/\"]")).click();
             //Появилась кнопка «оставит заявку»
             Assert.assertTrue(driver.findElement(By.xpath("//a[@class=\"box-top-button box-button\"][@href=\"#ozonbox-form-place\"]")).isDisplayed());
